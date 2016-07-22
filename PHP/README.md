@@ -7,7 +7,12 @@ include the AlianzMailer folder in your project and load the classes as follows
 use \AlianzMailer\Gen;
 use \AlianzMailer\Messenger;
 ```
-The aim is to create a message of the following format using the classes above
+The aim is to create a message of the following json format using the classes above:
+Hence you can ignore this class and create your own json, use curl and send the request to 
+HTTP POST https://api.alianzmail.com/v1/mail/send
+
+At least one messenger field is required, it should contian at least one item in the to field. the rest are optional in the messenger object
+the message, subject and from fields are also required. ie the main subject. the rest are also optional
 
 ```
 {
