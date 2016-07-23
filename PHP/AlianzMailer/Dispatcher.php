@@ -38,7 +38,7 @@ class Dispatcher
 	function __construct($message)
 	{
 		$this->message = json_encode($message);
-		$this->url = 'http://api.alianzmail.coms/v1/mail/send';
+		$this->url = 'https://api.alianzmail.com/v1/mail/send';
 	}
 	/**
 	 * Set credential
@@ -94,12 +94,7 @@ class Dispatcher
 				CURLOPT_CUSTOMREQUEST => "POST",
 				CURLOPT_HEADER => true,
 				CURLOPT_POSTFIELDS => $this->message,
-				CURLOPT_HTTPHEADER => array(
-				    "authorization: Bearer dslfhksdjf983237743iu",
-				    "cache-control: no-cache",
-				    "content-type: application/json",
-				    "postman-token: 685a89f7-eed7-9056-caa9-7253096b6d6e"
-				  ),
+				CURLOPT_HTTPHEADER => $this->headers,
 				));
 		}
 		$response = curl_exec($curl);
